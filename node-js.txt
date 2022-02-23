@@ -38,8 +38,19 @@ NODE JS
 --> function to handle incoming request and response to the request 
 
     function handleRequest(request, response) {
-        response.statusCode = 200;
+        response.statusCode = 200;//a success status code 
+         response.end("<h1>Hello World!</h1>");//response of server after success 
     }
 
+--> open localhost:3000  for server.listen(3000) in browser 
+
 -->IMP STATUS CODE 
-    200--> success
+    200--> success! request parsed successfully, a response could be generted 
+            + sent without any problems 
+    404--> Client-side error! the requested resource/url was not found.
+            hence the expected response could not be generated
+
+    401 --> Client-side error! The requesting client(user) is not authorised to access
+            the requested resource/url(e.g because not logged in)
+    500--> Server-side error! The request was valid but something went wrong 
+            on the server, hence the expected response could not be generated 
