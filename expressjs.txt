@@ -1,0 +1,7 @@
+Express js is a third party package for node js 
+
+--> how to install express or in general any third party package 
+    (npm--> node package manager)
+    in terminal -->
+    1. npm init --> will make a package.json file after process
+    2. npm install express --> this will start installing express 

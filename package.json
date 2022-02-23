@@ -1,0 +1,22 @@
+{
+  "name": "backend-therories",
+  "version": "1.0.0",
+  "description": "getting started node and express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumitkv31/Backend-theories.git"
+  },
+  "author": "Sumit Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sumitkv31/Backend-theories/issues"
+  },
+  "homepage": "https://github.com/sumitkv31/Backend-theories#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
