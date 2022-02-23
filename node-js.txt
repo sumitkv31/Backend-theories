@@ -38,8 +38,18 @@ NODE JS
 --> function to handle incoming request and response to the request 
 
     function handleRequest(request, response) {
-        response.statusCode = 200;//a success status code 
-         response.end("<h1>Hello World!</h1>");//response of server after success 
+
+         //url is a property of request which stores the path
+        if(request.url === '/currenttime'){
+            response.statusCode = 200;
+            response.end('<h1>'+ new Date().toISOString()+'</h1>')
+        }
+        else if(request.url === '/')
+        {
+           response.statusCode = 200;//a success status code 
+           response.end("<h1>Hello World!</h1>");//response of server after success 
+        }
+    
     }
 
 --> open localhost:3000  for server.listen(3000) in browser 
@@ -54,3 +64,9 @@ NODE JS
             the requested resource/url(e.g because not logged in)
     500--> Server-side error! The request was valid but something went wrong 
             on the server, hence the expected response could not be generated 
+
+--> PATHS 
+    
+    localhost:3000/path 
+    path should typically be all lowercase with no special character other than dashes
+    It should also describe the content of pages that can be expected(e.g /users,/product-detail,..)
