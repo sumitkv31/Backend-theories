@@ -1,0 +1,45 @@
+Node js is a used to write server side code 
+
+NODE JS 
+--> node js is a javascript runtime 
+--> a tool for executing javascript code(outside browser)
+
+--> Install node js 
+
+--> Running javaScript file in terminal
+
+    node file-name
+    ex--> node app.js 
+
+--> USING PACKAGE OF NODEJS IN JS 
+    const a-name-for-package = require('package-name');
+    ex-->
+    const http = require('http');
+    
+
+--> creating server using node-js 
+
+    const http = require('http')
+    const server = http.createServer(handleRequest);//server created
+    here handleRequest is a function which will be executed whenever we get a request or we want to send response
+
+--> what is a port no. 
+    amazon.com ==> send request to amazon's server 
+    when working with network we have ports 
+    every computer has different port no. --> it is like  a entry point for network traffic
+    HTTP --> PORT NO. 80 
+    HTTPS --> PORT NO. 443 
+    for development --> use any other port no. like port no. 3000
+
+--> LISTEN to port --> the server will listen to all request coming from this port 
+
+    server.listen(3000);
+
+--> function to handle incoming request and response to the request 
+
+    function handleRequest(request, response) {
+        response.statusCode = 200;
+    }
+
+-->IMP STATUS CODE 
+    200--> success
