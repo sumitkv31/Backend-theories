@@ -1,0 +1,17 @@
+client --> user 
+server --> backend 
+
+client sends request to server which with the help of its databases generate 
+HTML code and send to client as response 
+
+Therse are called Dynamic website
+
+how do we write Server-Side-Code ? 
+
+we need a programming language that can be executed on a server (i.e, NOT in the browser)
+
+some imp language for server-side-coding-->
+Python,php,c#, NodeJS(javaScript)
+
+
+
