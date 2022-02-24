@@ -40,7 +40,7 @@ app.get("/currenttime", function (request, response) {
 //handling form submission using express
 app.get("/", function (req, res) {
   res.send(
-    '<form action="/store-user" method="post"><label>Your Name </label> <input type="text" name="username"><button>Submit</button></form>'
+    '<form action="/store-user" method="post"><label>Your Name :</label> <input type="text" name="username"><button>Submit</button></form>'
   );
 });
 app.post("/store-user", function (req, res) {

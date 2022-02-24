@@ -69,4 +69,18 @@ NODE JS
     
     localhost:3000/path 
     path should typically be all lowercase with no special character other than dashes
-    It should also describe the content of pages that can be expected(e.g /users,/product-detail,..)
+    It should also describe t
+    
+
+
+-->NODEMON PACKAGE -->  
+        it will automatically start our server and stops it (basically it is helpful)
+    --> install vis
+         npm install nodemon --save-dev
+    --> run nodemon 
+        in package.json in "script" add "start":"nodemon app.js"
+        "script":{
+            "start":"nodemon app.js"
+        }
+    --> now in terminal just run 
+        npm run start 
