@@ -5,3 +5,77 @@ Express js is a third party package for node js
     in terminal -->
     1. npm init --> will make a package.json file after process
     2. npm install express --> this will start installing express 
+    
+
+--> const express = require('express');
+
+    it will be produce a function express() which when executed result in object
+
+    const app = express();
+
+    here app is an object
+
+--> get() request is a default kind of request which is sent by browser if we just 
+    enter a url and hit enter in browser
+
+    app.get('/currenttime', function(request,response){ res.send('<h1>' + new Date().toISOString()+ '</h1>') })    //localhost:3000/currenttime
+
+--> now this app object unlock more functionality 
+
+    app.listen(3000);
+
+--> HANDLING FORM DATA USING EXPRESS 
+    concept --> website/get-area == we have a form in get-area and user fill it 
+                                    so get-area takes the user-data and send it to a post-area 
+                website/post-area == it will handle the data that are sent from get-area 
+                
+
+   app.get("/", function (req, res) {
+  res.send(
+    '<form action="/store-user" method="post"><label>Your Name </label> <input type="text" name="username"><button>Submit</button></form>'
+  );
+});
+
+when we click on submit button we submit the form 
+post --> this is used for sending data from the browser to the server  
+
+now we also want a way to handle a POST request to /store-user path 
+
+app.post('/store-user',function(req,res){
+    const userName = req.body.username;
+    res.send('<h1>Username stored!</h1>')
+});
+
+//middleware request --> this is used to parse the form data and parse it
+                         into javascript code which we can use now 
+app.use(express.urlencoded({ extended: false }));
+
+
+-->STORING DATA IN SERVER-SIDE --> 
+    --> we make a json file 
+    --> const fs = require("fs");//now we require file-system package 
+    --> const path = require('path');//path package helps to develop complete path of file in all Type of OS in minimal effort
+    --> app.post("/store-user", function (req, res) {
+             const userName = req.body.username;
+            const filePath = path.join(__dirname, "data", "users.json"); //join multiple fragment to construct path which is absolute path
+            const fileData = fs.readFileSync(filePath); //it will read the raw data from the filePath here in JSON format
+            const existingUsers = JSON.parse(fileData); //it will translate json format to javascript object or array
+            existingUsers.push(userName); //push will append new element to the array
+            fs.writeFileSync(filePath, JSON.stringify(existingUsers)); //it will update the filePath
+            res.send("<h1>Username stored!</h1>");
+        });
+    --> doing above step will update our json file with user send input 
+    --> POSTING DATA FROM JSON FILE 
+        app.get("/users", function (req, res) {
+        const filePath = path.join(__dirname, "data", "users.json"); //join multiple fragment to construct path which is absolute path
+        const fileData = fs.readFileSync(filePath); //raw json data
+        const existingUsers = JSON.parse(fileData); //json data in form of javascript object or object
+
+        let responseData = "<ul>";
+        for (const user of existingUsers) {
+            responseData += "<li>" + user + "</li>";
+        }
+        responseData += "</ul>";
+        // res.send(existingUsers);
+        res.send(responseData);
+        });
