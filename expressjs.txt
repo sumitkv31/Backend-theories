@@ -79,3 +79,17 @@ app.use(express.urlencoded({ extended: false }));
         // res.send(existingUsers);
         res.send(responseData);
         });
+        
+        /*
+        how to generate dynamic pages using EJS PACKAGE OF EXPRESS
+        -->we use template (html+with some twist)
+        -->ejs template engine will be used
+        --> npm install ejs 
+        --> in app.js we can now set templating engine (ejs)
+
+            app.set('views',path.join(__dirname,'views'))//-->we will set it to let express know where it will find template files which we want to process 
+            app.set('view engine','ejs')
+            view engine--> we tell express that we want to use special engine for processing our view files
+            ejs--> name of engine
+        */
+
